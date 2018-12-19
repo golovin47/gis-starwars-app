@@ -28,7 +28,7 @@ class CharactersAdapter(
       oldItem is DefaultCharacterItem && newItem is DefaultCharacterItem ->
         oldItem.character.name == newItem.character.name
 
-      else -> false
+      else -> oldItem === newItem
     }
 
   override fun areContentsTheSame(oldItem: CharactersItem, newItem: CharactersItem): Boolean =
