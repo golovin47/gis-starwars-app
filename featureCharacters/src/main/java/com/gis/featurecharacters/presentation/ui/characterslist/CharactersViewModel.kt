@@ -1,5 +1,8 @@
 package com.gis.featurecharacters.presentation.ui.characterslist
 
+import com.gis.featurecharacters.presentation.ui.characterslist.CharactersItem.DefaultCharacterItem
+import com.gis.featurecharacters.presentation.ui.characterslist.CharactersItem.LoadingCharacterItem
+import com.gis.repository.domain.entitiy.Character
 import com.gis.repository.domain.interactors.SearchCharactersByNameUseCase
 import com.gis.utils.BaseViewModel
 import io.reactivex.Observable
@@ -20,7 +23,7 @@ class CharactersViewModel(
       intentStream.ofType(CharactersIntent.SearchByName::class.java)
         .switchMap { event ->
           searchCharactersByNameUseCase.execute(event.name)
-            .map { CharactersStateChange.CharactersReceived(it) }
+            .map { list -> CharactersStateChange.CharactersReceived(list.map { item -> item.toPresentation() }) }
             .cast(CharactersStateChange::class.java)
             .startWith(CharactersStateChange.StartLoading)
             .onErrorResumeNext { e: Throwable -> handleError(e) }
@@ -53,16 +56,21 @@ class CharactersViewModel(
 
       is CharactersStateChange.StartLoading -> previousState.copy(
         loading = true,
-        characters = emptyList(),
+        characters = listOf(LoadingCharacterItem),
         error = null
       )
 
       is CharactersStateChange.CharactersReceived -> previousState.copy(
         loading = false,
-        characters = stateChange.characters
+        characters = stateChange.characters,
+        error = null
       )
 
-      is CharactersStateChange.Error -> previousState.copy(loading = false, error = stateChange.error)
+      is CharactersStateChange.Error -> previousState.copy(
+        loading = false,
+        characters = emptyList(),
+        error = stateChange.error
+      )
 
       is CharactersStateChange.HideError -> previousState.copy(error = null)
 
@@ -73,4 +81,6 @@ class CharactersViewModel(
     goToCharacterDetail = null
     super.onCleared()
   }
+
+  private fun Character.toPresentation() = DefaultCharacterItem(this)
 }

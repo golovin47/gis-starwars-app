@@ -30,8 +30,8 @@
           android:id="@+id/ivImg"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
-          android:src="@drawable/sw_logo"
           android:layout_marginTop="16dp"
+          android:src="@drawable/sw_logo"
           app:layout_constraintEnd_toEndOf="parent"
           app:layout_constraintStart_toStartOf="parent"
           app:layout_constraintTop_toTopOf="parent" />
@@ -179,6 +179,7 @@
           android:layout_marginStart="16dp"
           android:layout_marginTop="8dp"
           android:layout_marginEnd="16dp"
+          android:autoLink="web"
           android:ellipsize="end"
           android:maxLines="1"
           android:text='@{"Home world: " + character.homeworld}'
@@ -230,6 +231,7 @@
           android:layout_marginStart="16dp"
           android:layout_marginTop="8dp"
           android:layout_marginEnd="16dp"
+          android:autoLink="web"
           android:ellipsize="end"
           android:maxLines="1"
           android:text='@{"Url: " + character.url}'
@@ -247,6 +249,7 @@
           android:layout_marginStart="16dp"
           android:layout_marginTop="8dp"
           android:layout_marginEnd="16dp"
+          android:autoLink="web"
           android:ellipsize="end"
           android:text='@{"Films: " + character.films}'
           android:textColor="@android:color/black"
@@ -263,6 +266,7 @@
           android:layout_marginStart="16dp"
           android:layout_marginTop="8dp"
           android:layout_marginEnd="16dp"
+          android:autoLink="web"
           android:ellipsize="end"
           android:text='@{"Species: " + character.species}'
           android:textColor="@android:color/black"
@@ -279,6 +283,7 @@
           android:layout_marginStart="16dp"
           android:layout_marginTop="8dp"
           android:layout_marginEnd="16dp"
+          android:autoLink="web"
           android:ellipsize="end"
           android:text='@{"Starships: " + character.starships}'
           android:textColor="@android:color/black"
@@ -296,14 +301,15 @@
           android:layout_marginTop="8dp"
           android:layout_marginEnd="16dp"
           android:layout_marginBottom="16dp"
+          android:autoLink="web"
           android:ellipsize="end"
           android:text='@{"Vehicles: " + character.vehicles}'
           android:textColor="@android:color/black"
           android:textSize="@dimen/text_view_text_size"
+          app:layout_constraintBottom_toBottomOf="parent"
           app:layout_constraintEnd_toEndOf="parent"
           app:layout_constraintStart_toStartOf="parent"
           app:layout_constraintTop_toBottomOf="@id/tvStarships"
-          app:layout_constraintBottom_toBottomOf="parent"
           tools:text="Vehicles: https://swapi.co/api/vehicles/14/" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,7 +5,7 @@ import com.gis.repository.domain.entitiy.Character
 
 data class CharactersState(
   val loading: Boolean = false,
-  val characters: List<Character> = emptyList(),
+  val characters: List<CharactersItem> = emptyList(),
   val error: Throwable? = null
 )
 
@@ -19,7 +19,12 @@ sealed class CharactersIntent {
 
 sealed class CharactersStateChange {
   object StartLoading : CharactersStateChange()
-  class CharactersReceived(val characters: List<Character>) : CharactersStateChange()
+  class CharactersReceived(val characters: List<CharactersItem>) : CharactersStateChange()
   class Error(val error: Throwable) : CharactersStateChange()
   object HideError : CharactersStateChange()
+}
+
+sealed class CharactersItem {
+  data class DefaultCharacterItem(val character: Character) : CharactersItem()
+  object LoadingCharacterItem : CharactersItem()
 }

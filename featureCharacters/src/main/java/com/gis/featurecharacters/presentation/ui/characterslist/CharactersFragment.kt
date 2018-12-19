@@ -63,8 +63,7 @@ class CharactersFragment : Fragment(), BaseView<CharactersState> {
   }
 
   private fun initRecyclerView(context: Context) {
-    val imageLoader: ImageLoader = get()
-    val adapter = CharactersAdapter(itemClickPublisher, imageLoader)
+    val adapter = CharactersAdapter(itemClickPublisher)
     binding!!.rvCharacters
       .apply {
         layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
@@ -78,7 +77,8 @@ class CharactersFragment : Fragment(), BaseView<CharactersState> {
 
       RxTextView.textChanges(binding!!.etSearch)
         .debounce(300, TimeUnit.MILLISECONDS, AndroidSchedulers.mainThread())
-        .map { query -> if (query.isBlank()) EmptySearch else SearchByName(query.toString()) },
+        .map { query -> if (query.isBlank()) EmptySearch else SearchByName(query.toString()) }
+        .skip(1),
 
       itemClickPublisher
     ))
@@ -90,7 +90,6 @@ class CharactersFragment : Fragment(), BaseView<CharactersState> {
   }
 
   override fun render(state: CharactersState) {
-    binding!!.loading = state.loading
 
     if (state.error != null)
       Snackbar.make(view!!, state.error.message!!, Snackbar.LENGTH_SHORT).show()
