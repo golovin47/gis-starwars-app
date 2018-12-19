@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">featureCharacters</string>
+
+    <string name="search_hint">Enter your Star Wars character name</string>
+</resources>

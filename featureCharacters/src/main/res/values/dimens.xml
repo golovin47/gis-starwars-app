@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <dimen name="edit_text_height">64dp</dimen>
+  <dimen name="recycler_view_margin_top">72dp</dimen>
+  <dimen name="image_view_size">100dp</dimen>
+  <dimen name="text_view_text_size">24sp</dimen>
+  <dimen name="characters_item_height">72dp</dimen>
+  <dimen name="character_item_text_size">32sp</dimen>
+</resources>

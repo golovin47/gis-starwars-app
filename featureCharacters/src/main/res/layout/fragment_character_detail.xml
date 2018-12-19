@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+  <data>
+
+    <variable
+        name="loading"
+        type="boolean" />
+
+    <variable
+        name="character"
+        type="com.gis.repository.domain.entitiy.Character" />
+
+    <import type="android.view.View" />
+
+  </data>
+
+  <ScrollView
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+      <ImageView
+          android:id="@+id/ivImg"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:src="@drawable/sw_logo"
+          android:layout_marginTop="16dp"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent" />
+
+      <TextView
+          android:id="@+id/tvName"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="16dp"
+          android:layout_marginTop="8dp"
+          android:layout_marginEnd="16dp"
+          android:ellipsize="end"
+          android:maxLines="1"
+          android:text='@{"Name: " + character.name}'
+          android:textColor="@android:color/black"
+          android:textSize="@dimen/text_view_text_size"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@id/ivImg"
+          tools:text="Name: Luke Skywalker" />
+
+      <TextView
+          android:id="@+id/tvGender"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="16dp"
+          android:layout_marginTop="8dp"
+          android:layout_marginEnd="16dp"
+          android:ellipsize="end"
+          android:maxLines="1"
+          android:text='@{"Gender: " + character.gender}'
+          android:textColor="@android:color/black"
+          android:textSize="@dimen/text_view_text_size"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@id/tvName"
+          tools:text="Gender: Male" />
+
+      <TextView
+          android:id="@+id/tvBirthYear"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="16dp"
+          android:layout_marginTop="8dp"
+          android:layout_marginEnd="16dp"
+          android:ellipsize="end"
+          android:maxLines="1"
+          android:text='@{"Born: " + character.birthYear}'
+          android:textColor="@android:color/black"
+          android:textSize="@dimen/text_view_text_size"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@id/tvGender"
+          tools:text="Born: 19 BBY" />
+
+      <TextView
+          android:id="@+id/tvEyeColor"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="16dp"
+          android:layout_marginTop="8dp"
+          android:layout_marginEnd="16dp"
+          android:ellipsize="end"
+          android:maxLines="1"
+          android:text='@{"Eye color: " + character.eyeColor}'
+          android:textColor="@android:color/black"
+          android:textSize="@dimen/text_view_text_size"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@id/tvBirthYear"
+          tools:text="Eye color: Blue" />
+
+      <TextView
+          android:id="@+id/tvHairColor"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="16dp"
+          android:layout_marginTop="8dp"
+          android:layout_marginEnd="16dp"
+          android:ellipsize="end"
+          android:maxLines="1"
+          android:text='@{"Hair color: " + character.hairColor}'
+          android:textColor="@android:color/black"
+          android:textSize="@dimen/text_view_text_size"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@id/tvEyeColor"
+          tools:text="Hair color: Blond" />
+
+      <TextView
+          android:id="@+id/tvSkinColor"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="16dp"
+          android:layout_marginTop="8dp"
+          android:layout_marginEnd="16dp"
+          android:ellipsize="end"
+          android:maxLines="1"
+          android:text='@{"Skin color: " + character.skinColor}'
+          android:textColor="@android:color/black"
+          android:textSize="@dimen/text_view_text_size"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@id/tvHairColor"
+          tools:text="Skin color: Fair" />
+
+      <TextView
+          android:id="@+id/tvHeight"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="16dp"
+          android:layout_marginTop="8dp"
+          android:layout_marginEnd="16dp"
+          android:ellipsize="end"
+          android:maxLines="1"
+          android:text='@{"Height: " + character.height}'
+          android:textColor="@android:color/black"
+          android:textSize="@dimen/text_view_text_size"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@id/tvSkinColor"
+          tools:text="Height: 172" />
+
+      <TextView
+          android:id="@+id/tvMass"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="16dp"
+          android:layout_marginTop="8dp"
+          android:layout_marginEnd="16dp"
+          android:ellipsize="end"
+          android:maxLines="1"
+          android:text='@{"Mass: " + character.mass}'
+          android:textColor="@android:color/black"
+          android:textSize="@dimen/text_view_text_size"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@id/tvHeight"
+          tools:text="Mass: 72" />
+
+      <TextView
+          android:id="@+id/tvHomeWorld"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="16dp"
+          android:layout_marginTop="8dp"
+          android:layout_marginEnd="16dp"
+          android:ellipsize="end"
+          android:maxLines="1"
+          android:text='@{"Home world: " + character.homeworld}'
+          android:textColor="@android:color/black"
+          android:textSize="@dimen/text_view_text_size"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@id/tvMass"
+          tools:text="Home world: https://swapi.co/api/planets/1/" />
+
+      <TextView
+          android:id="@+id/tvCreated"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="16dp"
+          android:layout_marginTop="8dp"
+          android:layout_marginEnd="16dp"
+          android:ellipsize="end"
+          android:maxLines="1"
+          android:text='@{"Created: " + character.created}'
+          android:textColor="@android:color/black"
+          android:textSize="@dimen/text_view_text_size"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@id/tvHomeWorld"
+          tools:text="Created: 2014-12-09T13:50:51.644000Z" />
+
+      <TextView
+          android:id="@+id/tvEdited"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="16dp"
+          android:layout_marginTop="8dp"
+          android:layout_marginEnd="16dp"
+          android:ellipsize="end"
+          android:maxLines="1"
+          android:text='@{"Edited: " + character.edited}'
+          android:textColor="@android:color/black"
+          android:textSize="@dimen/text_view_text_size"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@id/tvCreated"
+          tools:text="Edited: 2014-12-09T13:50:51.644000Z" />
+
+      <TextView
+          android:id="@+id/tvUrl"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="16dp"
+          android:layout_marginTop="8dp"
+          android:layout_marginEnd="16dp"
+          android:ellipsize="end"
+          android:maxLines="1"
+          android:text='@{"Url: " + character.url}'
+          android:textColor="@android:color/black"
+          android:textSize="@dimen/text_view_text_size"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@id/tvEdited"
+          tools:text="Url: https://swapi.co/api/people/1/" />
+
+      <TextView
+          android:id="@+id/tvFilms"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="16dp"
+          android:layout_marginTop="8dp"
+          android:layout_marginEnd="16dp"
+          android:ellipsize="end"
+          android:text='@{"Films: " + character.films}'
+          android:textColor="@android:color/black"
+          android:textSize="@dimen/text_view_text_size"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@id/tvUrl"
+          tools:text="Films: https://swapi.co/api/films/1/" />
+
+      <TextView
+          android:id="@+id/tvSpecies"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="16dp"
+          android:layout_marginTop="8dp"
+          android:layout_marginEnd="16dp"
+          android:ellipsize="end"
+          android:text='@{"Species: " + character.species}'
+          android:textColor="@android:color/black"
+          android:textSize="@dimen/text_view_text_size"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@id/tvFilms"
+          tools:text="Species: https://swapi.co/api/species/1/" />
+
+      <TextView
+          android:id="@+id/tvStarships"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="16dp"
+          android:layout_marginTop="8dp"
+          android:layout_marginEnd="16dp"
+          android:ellipsize="end"
+          android:text='@{"Starships: " + character.starships}'
+          android:textColor="@android:color/black"
+          android:textSize="@dimen/text_view_text_size"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@id/tvSpecies"
+          tools:text="Starships: https://swapi.co/api/starships/12/" />
+
+      <TextView
+          android:id="@+id/tvVehicles"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="16dp"
+          android:layout_marginTop="8dp"
+          android:layout_marginEnd="16dp"
+          android:layout_marginBottom="16dp"
+          android:ellipsize="end"
+          android:text='@{"Vehicles: " + character.vehicles}'
+          android:textColor="@android:color/black"
+          android:textSize="@dimen/text_view_text_size"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@id/tvStarships"
+          app:layout_constraintBottom_toBottomOf="parent"
+          tools:text="Vehicles: https://swapi.co/api/vehicles/14/" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+  </ScrollView>
+
+</layout>
